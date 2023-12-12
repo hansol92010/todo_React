@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import style from "./List.module.css";
 
-export default function List({id, title, completed, todoData, setTodoData, handleRemove}) {
+const List = React.memo(({id, title, completed, todoData, setTodoData, handleRemove}) => {
   const [isEditing, setIsEditing] = useState(false);
-  const [editedTitle, setEditedTitle] = useState("");
+  const [editedTitle, setEditedTitle] = useState(title);
 
   // 체크박스를 눌렀을 때
   const handleCompleteCheck = (id) => {
@@ -39,40 +40,43 @@ export default function List({id, title, completed, todoData, setTodoData, handl
 
   if(isEditing) {
     return (
-      <div>
+      <div className={`${style.list}`}>
         <form>
-          <div>
+          <div className={`${style.item}`}>
             <input
               type="text"
+              className={`${style.item_input}`}
               value={editedTitle}
               onChange={handleEditChange}
             />
           </div>
         </form>
-        <div>
-          <button onClick={() => setIsEditing(false)}>돌아가기</button>
-          <button onClick={handleSubmit}>저장</button>
+        <div className={`${style.item}`}>
+          <button className={`${style.item_listBtn}`} onClick={handleSubmit}>저장</button>
+          <button className={`${style.item_listBtn}`} onClick={() => setIsEditing(false)}>돌아가기</button>
         </div>
       </div>
     )
   } else {
     return (
-      <div>
-        <div>
-        <input
-          type="checkbox"
-          defaultChecked={completed}
-          onClick={() => handleCompleteCheck(id)}
-        />
-        <span style={{
-          "textDecoration" : completed ? "line-through" : undefined
-        }}>{title}</span>
+      <div className={`${style.list}`}>
+        <div className={`${style.item}`}>
+          <input
+            type="checkbox"
+            defaultChecked={completed}
+            onClick={() => handleCompleteCheck(id)}
+          />
+          <span style={{
+            "textDecoration" : completed ? "line-through" : undefined
+          }}>{title}</span>
         </div>
-        <div>
-          <button onClick={() => handleRemove(id)}>삭제</button>
-          <button onClick={() => setIsEditing(true)}>수정</button>
+        <div className={`${style.item}`}>
+          <button className={`${style.item_listBtn}`} onClick={() => handleRemove(id)}>삭제</button>
+          <button className={`${style.item_listBtn}`} onClick={() => setIsEditing(true)}>수정</button>
         </div>
       </div>
     )
   }
-}
+})
+
+export default List;

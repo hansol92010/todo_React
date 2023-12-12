@@ -1,0 +1,49 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(219, 234, 254);
+}
+
+.content {
+  width: 100%;
+  padding: 24px;
+  margin: 16px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 4px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1)
+}
+
+.todo {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.todo h1 {
+  width: 70%;
+  font-size: 27px;
+}
+
+.todo .deleteBtn {
+  cursor: pointer;
+  background-color: rgb(255, 255, 255);
+  box-sizing: border-box;
+  border: 0 solid #e5e7eb;
+  font-size: 100%;
+  transition: color 0.2s ease-out;
+}
+
+.todo .deleteBtn:hover {
+  color: rgb(96, 165, 250);
+}
+
+@media (min-width: 768px) {
+  .content {
+    width: 50%;
+  }
+}
+
+

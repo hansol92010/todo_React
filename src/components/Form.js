@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import style from "./Form.module.css";
 
 export default function Form({value, setValue, handleSubmit}) {
 
@@ -9,20 +10,20 @@ export default function Form({value, setValue, handleSubmit}) {
   }
   
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="value"
-          placeholder="할 일을 입력하세요"
-          value={value}
-          onChange={handleChange}
-        />
-        <input
-          type="submit"
-          value="입력"
-        />
-      </form>
-    </div>
+    <form className={`${style.input_form}`} onSubmit={handleSubmit}>
+      <input
+        type="text"
+        className={`${style.input_text}`}
+        name="value"
+        placeholder="할 일을 입력하세요"
+        value={value}
+        onChange={handleChange}
+      />
+      <input
+        type="submit"
+        className={`${style.input_submit}`}
+        value="입력"
+      />
+    </form>
   )
 }

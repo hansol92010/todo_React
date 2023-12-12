@@ -1,0 +1,29 @@
+.input_form {
+  display: flex;
+  padding-top: 8px;
+}
+
+.input_text {
+  width: 100%;
+  padding: 8px 12px;
+  margin-right: 16px;
+  color: rgb(107 114 128);
+  box-sizing: border-box;
+  border: 1px solid #e5e7eb;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
+}
+
+.input_submit {
+  padding: 8px;
+  color: rgb(96 165 250);
+  background-color: rgb(255, 255, 255);
+  border-color: rgb(96 165 250);
+  border-radius: 4px;
+  transition: all 0.2s ease-out;
+}
+
+.input_submit:hover {
+  color: rgb(255 255 255);
+  background-color: rgb(191 219 254);
+}
